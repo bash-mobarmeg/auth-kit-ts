@@ -1,0 +1,1 @@
+export { ApiAddTfaSecret } from "./ApiAddTfaSecret";

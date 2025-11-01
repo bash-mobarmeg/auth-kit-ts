@@ -1,0 +1,6 @@
+{
+    "watch": [ "src", "types" ],
+    "ignore": [ "dist" ],
+    "ext": "ts,js,json",
+    "exec": "ts-node -r tsconfig-paths/register -r source-map-support/register src/server.ts"
+}

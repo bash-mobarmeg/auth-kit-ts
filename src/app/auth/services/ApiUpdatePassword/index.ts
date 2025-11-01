@@ -1,0 +1,1 @@
+export { ApiUpdatePassword } from "./ApiUpdatePassword";

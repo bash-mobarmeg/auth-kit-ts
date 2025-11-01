@@ -1,0 +1,89 @@
+---baseurl=http://localhost:3000/api/v1
+---token=example-token
+
+
+# Signup [email]
+curl -i -X POST $baseurl/auth/signup/email
+-H "Content-Type: application/json"
+-d
+{
+    "username": "blah",
+    "email": "blah@gmail.com",
+    "password": "Password1"
+}
+
+# Signup [phone]
+curl -i -X POST $baseurl/auth/signup/phone
+-H "Content-Type: application/json"
+-d
+{
+    "username": "blah2",
+    "phoneNumber": "+201009863469",
+    "password": "Password1"
+}
+
+# ^ Signup complete because `username`
+curl -i -X POST $baseurl/auth/signup/complete
+-H "Authorization: Bearer $token"
+-H "Content-Type: application/json"
+-d '{ "username": "user1" }'
+
+
+
+#############################################
+
+
+
+# Login [email]
+curl -i -X POST $baseurl/auth/login/email
+-H "Content-Type: application/json"
+-d '{ "email": "blah@gmail.com", "password": "Password1" }'
+
+
+# Login [phone]
+curl -i -X POST $baseurl/auth/login/phone
+-H "Content-Type: application/json"
+-d '{ "phoneNumber": "+201009863469", "password": "Password1" }'
+
+
+
+#############################################
+
+
+
+# Google [register]
+curl -i -X GET $baseurl/auth/google
+
+# Google [callback]
+curl -i -X GET $baseurl/auth/google/callback
+
+
+
+#############################################
+
+
+
+# 2FA [register]
+curl -i -X GET $baseurl/auth/2fa/register
+-H "Authorization: Bearer $token"
+
+# 2FA [validate]
+curl -i -X POST $baseurl/auth/2fa/validate
+-H "Authorization: Bearer $token"
+-d '{ "token": "232837" }'
+
+# 2FA [update]
+curl -i -X GET $baseurl/auth/2fa/update
+-H "Authorization: Bearer $token"
+
+
+
+#############################################
+
+
+
+# Update password
+curl -i -X PUT $baseurl/auth/update/password
+-H "Authorization: Bearer $token"
+-d '{ "oldPassword": "Password1", "newPassword": "Password2" }'
+

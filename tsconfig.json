@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        // "allowImportingTsExtensions": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "strict": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@config": ["src/config"],
+            "@app/auth/*": ["src/app/auth/*"],
+            "@api/res/status": ["src/common/constants"],
+            "@api/res/error": ["src/error"],
+            "@common/*": ["src/common/*"],
+            "@utils/*": ["src/utils/*"],
+            "@logger": ["src/logger"],
+            "@db/*": ["src/db/*"]
+        }
+    },
+    "include": ["src", "types"],
+    "types": ["node", "express", "cookie-session"],
+    "lib": ["es2015"]
+}
